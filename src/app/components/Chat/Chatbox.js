@@ -32,11 +32,11 @@ export default function Chatbox({ state, setState }) {
       setInput(""); // Clear the input field
 
       try {
-        console.log(state)
+        console.log(state);
         // Call the chat handler function with the prompt
         const result = await handleChatRequest(input, state);
-        setState(result.result)
-        console.log(result)
+        setState(result.result);
+        console.log(result);
 
         // Add the AI's response to the chat
         setMessages((prevMessages) => [

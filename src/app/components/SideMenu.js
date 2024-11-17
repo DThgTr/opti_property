@@ -50,11 +50,14 @@ export default function SideMenu() {
           textAlign: "center",
         }}
       >
-        <Typography variant="h5" style={{ flexGrow: 1 }}>
-          OptiProperty
-        </Typography>
+        {/* Replace the title with the image */}
+        <img
+          src="/optiproperty2.png"
+          alt="OptiProperty Logo"
+          style={{ width: "100%", maxWidth: "200px", height: "auto" }}
+        />
       </Box>
-      <Box sx={{ p: 2 }}>
+      <Box>
         {isAuthenticated ? (
           <>{/* Replace the AccountCircle and LogoutIcon with OptionsMenu */}</>
         ) : (
