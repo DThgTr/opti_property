@@ -8,6 +8,7 @@ import FormGroup from "@mui/material/FormGroup";
 import ElectricLineGraph from "./ElectricLineGraph";
 import WaterLineGraph from "./WaterLineGraph";
 import utilityUsage from "../data/utility_usage.json";
+import { systemState } from "../data/system_state";
 
 const transformData = (data, key) => {
   return data.reduce((acc, record) => {
@@ -25,6 +26,14 @@ const transformData = (data, key) => {
 
 export default function Dashboard() {
   const theme = useTheme();
+
+  const [state, setState] = React.useState(systemState);
+
+  const handleChange = (event, floor, type) => {
+    const newState = { ...state };
+    newState.floor[floor][type] = event.target.checked;
+    setState(newState);
+  };
 
   const electricityColorPalette = [
     theme.palette.primary.light,
@@ -61,27 +70,57 @@ export default function Dashboard() {
       <Grid item xs={12}>
         <FormGroup row>
           <FormControlLabel
-            control={<Switch defaultChecked />}
+            control={
+              <Switch
+                checked={state.floor["1"].electricity}
+                onChange={(e) => handleChange(e, "1", "electricity")}
+              />
+            }
             label="Lights Floor 1"
           />
           <FormControlLabel
-            control={<Switch defaultChecked />}
+            control={
+              <Switch
+                checked={state.floor["2"].electricity}
+                onChange={(e) => handleChange(e, "2", "electricity")}
+              />
+            }
             label="Lights Floor 2"
           />
           <FormControlLabel
-            control={<Switch defaultChecked />}
+            control={
+              <Switch
+                checked={state.floor["3"].electricity}
+                onChange={(e) => handleChange(e, "3", "electricity")}
+              />
+            }
             label="Lights Floor 3"
           />
           <FormControlLabel
-            control={<Switch defaultChecked />}
+            control={
+              <Switch
+                checked={state.floor["1"].water}
+                onChange={(e) => handleChange(e, "1", "water")}
+              />
+            }
             label="Water Floor 1"
           />
           <FormControlLabel
-            control={<Switch defaultChecked />}
+            control={
+              <Switch
+                checked={state.floor["2"].water}
+                onChange={(e) => handleChange(e, "2", "water")}
+              />
+            }
             label="Water Floor 2"
           />
           <FormControlLabel
-            control={<Switch defaultChecked />}
+            control={
+              <Switch
+                checked={state.floor["3"].water}
+                onChange={(e) => handleChange(e, "3", "water")}
+              />
+            }
             label="Water Floor 3"
           />
         </FormGroup>
