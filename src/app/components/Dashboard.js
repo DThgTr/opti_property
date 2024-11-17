@@ -8,8 +8,7 @@ import FormGroup from "@mui/material/FormGroup";
 import ElectricLineGraph from "./ElectricLineGraph";
 import WaterLineGraph from "./WaterLineGraph";
 import utilityUsage from "../data/utility_usage.json";
-import { useState } from "react";
-import { systemState } from "../data/system_state";
+
 
 const transformData = (data, key) => {
   return data.reduce((acc, record) => {
@@ -25,7 +24,7 @@ const transformData = (data, key) => {
   }, []);
 };
 
-export default function Dashboard() {
+export default function Dashboard({ state, setState }) {
   const theme = useTheme();
 
   const electricityColorPalette = [
@@ -57,7 +56,6 @@ export default function Dashboard() {
   const floor2WaterData = transformData(utilityUsage, "floor2_water");
   const floor3WaterData = transformData(utilityUsage, "floor3_water");
 
-  const [state, setState] = useState(systemState);
 
   const handleChange = (floor, type) => (event) => {
     const newState = { ...state };

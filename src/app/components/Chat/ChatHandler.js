@@ -3,7 +3,7 @@ import * as dataOps from '../../data/dataOps.js';
 const axios = require('axios');
 
 // This function accepts 'prompt' as an argument, processes it, and returns the command execution result
-export async function handleChatRequest(prompt) {
+export async function handleChatRequest(prompt, state) {
     try {
         const operation_list = dataOps.getOperationsList();
 
@@ -27,15 +27,15 @@ export async function handleChatRequest(prompt) {
         ${operation_list.join(', ')}
         \n
         IF THE PROMPT IS RELEVANT:
-        Replace "op" with the corresponding operation from the list of operation
-        Replace "number" with the corresponding floor number
-        Replace "state" with the corresponding true/false
+        "operation" can only take a value from List of operation. Replace "op" with the corresponding operation from the list of operation
+        "floor" can only take a numeric value. Replace "number" with the corresponding floor number
+        "state" can only take the value 'true' or 'false'. Replace "state" with the corresponding true/false
         Replace "statement" with the proper closure - humand readable
         OTHERWISE: 
         Replace "op" with "N/A"
         Replace "number" with "N/A"
         Replace "state" with "N/A"
-        Replacye "statement" with "I could not understand. Please try again"
+        Replace "statement" with "I could not understand. Please try again"
         `;
         
         // Sending prompt to the external API
@@ -56,24 +56,27 @@ export async function handleChatRequest(prompt) {
 
         const response = await axios.post('https://api.sambanova.ai/v1/chat/completions', data, {
             headers: {
-                'Authorization': 'Bearer 1824d9fd-474a-456d-ae63-8529951295d3',
+                'Authorization': 'Bearer 5f3a45eb-e9b8-4e48-805c-27f51785f4eb',
                 'Content-Type': 'application/json'
             },
         });
 
         // Parse the response from the model
         const content = JSON.parse(response.data.choices[0].message.content);
+        // console.log(content);
+
+        const state2 = JSON.parse(JSON.stringify(state));
 
 
         // Execute the corresponding command
         let result;
         switch (content.operation) {
             case 'switchElectricity':
-                result = dataOps.switchElectricity(content.floor, content.status);
-                console.log(result);
+                result = dataOps.switchElectricity(state2, content.floor, content.status);
+                console.log(result)
                 break;
             case 'switchWater':
-                result = dataOps.switchWater(content.floor, content.status);
+                result = dataOps.switchWater(state2, content.floor, content.status);
                 console.log(result);
                 break;
             default:
@@ -81,8 +84,13 @@ export async function handleChatRequest(prompt) {
                 break;
         }
 
+        console.log(result)
+
         // Return the result
-        return content.closure;
+        return {
+            closure: content.closure,
+            result
+        }
 
     } catch (error) {
         // Handle any errors and return them

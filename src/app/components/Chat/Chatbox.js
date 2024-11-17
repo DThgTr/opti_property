@@ -4,7 +4,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import SendIcon from "@mui/icons-material/Send";
 import { handleChatRequest } from './ChatHandler.js'; // Import the chat handler
 
-export default function Chatbox() {
+export default function Chatbox({ state, setState }) {
   const [open, setOpen] = useState(false); // State to control the sidebar visibility
   const [messages, setMessages] = useState([]); // State to store chat messages
   const [input, setInput] = useState(""); // State for input field
@@ -22,13 +22,16 @@ export default function Chatbox() {
       setInput(""); // Clear the input field
 
       try {
+        console.log(state)
         // Call the chat handler function with the prompt
-        const result = await handleChatRequest(input);
+        const result = await handleChatRequest(input, state);
+        setState(result.result)
+        console.log(result)
 
         // Add the AI's response to the chat
         setMessages((prevMessages) => [
           ...prevMessages,
-          { text: result, sender: "AI" },
+          { text: result.closure, sender: "AI" },
         ]);
       } catch (error) {
         console.error("Error:", error);
