@@ -1,4 +1,5 @@
 'use server'
+import { Console } from 'console';
 import * as dataOps from '../../data/dataOps.js';
 const axios = require('axios');
 
@@ -12,6 +13,7 @@ export async function handleChatRequest(prompt, state) {
             throw new Error('Prompt not provided');
         }
 
+        /*
         const prompt_appended = `
         Return ONLY in this JSON format, NO MATTER WHAT:
         {
@@ -37,6 +39,33 @@ export async function handleChatRequest(prompt, state) {
         Replace "state" with "N/A"
         Replace "statement" with "I could not understand. Please try again"
         `;
+        */
+        const prompt_appended = `
+        ALWAYS RETURN IN THIS FORMAT:
+        "operation": "op"
+        "updated_state": "updated"
+        "closure": "statement"
+        "op" can only take a value from the list of operation. Replace "op" with the correct operation judging by the prompt.
+        "updated" can only take a JSON CONFORMED STRING that is EXACTLY SIMILAR IN FORMAT TO THE CURRENT STATE. Use the prompt to return the correct updated state.
+        "statement" can only take a string. "statement" should take the value of a closure string after the prompt is carried out and must be human readable.
+        
+        Answer format example:
+        {
+        "operation": "switchElectricity",
+        "updated_state": "{\"floor\":{\"1\":{\"electricity\":\"true\",\"water\":\"true\"},\"2\":{\"electricity\":\"true\",\"water\":\"true\"},\"3\":{\"electricity\":\"true\",\"water\":\"true\"}}}",
+        "closure": "The electricity for floor 1 has been turned off."
+        }
+        \n 
+        Be mindful of double quote when generating the JSON\n
+        Current State:\n
+        ${JSON.stringify(state)}\n
+        Prompt: ${prompt}\n
+        List of operation: 
+        ${operation_list.join(', ')}
+        IF THE PROMPT NOT RELEVANT TO UPDATING THE CURRENT STATE:
+        Replace "updated" with the current state.
+        Replace "statement" with "I do not understand. Please try again".
+        `
         
         // Sending prompt to the external API
         let data = {
@@ -61,30 +90,13 @@ export async function handleChatRequest(prompt, state) {
             },
         });
 
+        console.log(response.data.choices[0].message.content)
         // Parse the response from the model
         const content = JSON.parse(response.data.choices[0].message.content);
         // console.log(content);
-
-        const state2 = JSON.parse(JSON.stringify(state));
-
-
         // Execute the corresponding command
-        let result;
-        switch (content.operation) {
-            case 'switchElectricity':
-                result = dataOps.switchElectricity(state2, content.floor, content.status);
-                console.log(result)
-                break;
-            case 'switchWater':
-                result = dataOps.switchWater(state2, content.floor, content.status);
-                console.log(result);
-                break;
-            default:
-                result = { error: 'Invalid operation' };
-                break;
-        }
-
-        console.log(result)
+        let result = JSON.parse(content.updated_state);
+        console.log(`Result: ${result}`)
 
         // Return the result
         return {
