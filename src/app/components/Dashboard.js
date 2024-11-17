@@ -2,6 +2,9 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
+import Switch from "@mui/material/Switch";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
 import ElectricLineGraph from "./ElectricLineGraph";
 import WaterLineGraph from "./WaterLineGraph";
 import utilityUsage from "../data/utility_usage.json";
@@ -54,6 +57,36 @@ export default function Dashboard() {
 
   return (
     <Grid container spacing={2}>
+      {/* Switches for controlling lights and water */}
+      <Grid item xs={12}>
+        <FormGroup row>
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            label="Lights Floor 1"
+          />
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            label="Lights Floor 2"
+          />
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            label="Lights Floor 3"
+          />
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            label="Water Floor 1"
+          />
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            label="Water Floor 2"
+          />
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            label="Water Floor 3"
+          />
+        </FormGroup>
+      </Grid>
+
       {/* ElectricLineGraph.js and WaterLineGraph.js in One Row */}
       <Grid container item spacing={2}>
         <Grid item xs={12} sm={6}>
