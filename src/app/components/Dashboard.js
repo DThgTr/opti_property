@@ -9,7 +9,6 @@ import ElectricLineGraph from "./ElectricLineGraph";
 import WaterLineGraph from "./WaterLineGraph";
 import utilityUsage from "../data/utility_usage.json";
 
-
 const transformData = (data, key) => {
   return data.reduce((acc, record) => {
     if (!acc.some((item) => item.hour === record.hour)) {
@@ -56,7 +55,6 @@ export default function Dashboard({ state, setState }) {
   const floor2WaterData = transformData(utilityUsage, "floor2_water");
   const floor3WaterData = transformData(utilityUsage, "floor3_water");
 
-
   const handleChange = (floor, type) => (event) => {
     const newState = { ...state };
     newState.floor[floor][type] = event.target.checked;
@@ -65,8 +63,8 @@ export default function Dashboard({ state, setState }) {
 
   return (
     <Grid container spacing={2}>
-      {/* Switches for controlling lights and water */}
-      <Grid item xs={12}>
+      {/* Switches for controlling electricity */}
+      <Grid item xs={12} sm={6}>
         <FormGroup row>
           <FormControlLabel
             control={
@@ -95,6 +93,12 @@ export default function Dashboard({ state, setState }) {
             }
             label="Lights Floor 3"
           />
+        </FormGroup>
+      </Grid>
+
+      {/* Switches for controlling water */}
+      <Grid item xs={12} sm={6}>
+        <FormGroup row>
           <FormControlLabel
             control={
               <Switch
