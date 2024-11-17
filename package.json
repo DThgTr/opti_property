@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.7",
     "@mui/material": "^6.1.7",
+    "@mui/styled-engine-sc": "^6.1.7",
     "@mui/x-charts": "^7.22.2",
     "@mui/x-data-grid": "^7.22.2",
     "@mui/x-data-grid-generator": "7.22.2",
@@ -25,7 +26,8 @@
     "next": "^15.0.3",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@types/node": "22.9.0",
