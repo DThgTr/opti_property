@@ -85,7 +85,7 @@ export async function handleChatRequest(prompt, state) {
 
         const response = await axios.post('https://api.sambanova.ai/v1/chat/completions', data, {
             headers: {
-                'Authorization': 'Bearer 5f3a45eb-e9b8-4e48-805c-27f51785f4eb',
+                'Authorization': 'Bearer 7a33af3b-087e-4d65-98d8-47d44b3da2e9',
                 'Content-Type': 'application/json'
             },
         });
