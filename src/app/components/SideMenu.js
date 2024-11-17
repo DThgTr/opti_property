@@ -57,7 +57,7 @@ export default function SideMenu() {
           style={{ width: "100%", maxWidth: "200px", height: "auto" }}
         />
       </Box>
-      <Box>
+      <Box sx={{ p: 2 }}>
         {isAuthenticated ? (
           <>{/* Replace the AccountCircle and LogoutIcon with OptionsMenu */}</>
         ) : (
