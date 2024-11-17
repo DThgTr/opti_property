@@ -17,9 +17,9 @@ const WelcomePage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8">
       <Typography variant="h4" component="h1" gutterBottom>
-        Welcome to the Admin Dashboard
+        Welcome to the Admin Dashboard for OptiProperty
       </Typography>
-      <Typography variant="body1" gutterBottom>
+      <Typography variant="h5" gutterBottom>
         Please sign in to access the dashboard.
       </Typography>
       <Button

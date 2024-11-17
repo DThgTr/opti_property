@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import { LineChart } from "@mui/x-charts/LineChart";
@@ -72,7 +71,7 @@ export default function ElectricityUsage() {
                 0
               )}
             </Typography>
-            <Chip size="small" color="success" label="+35%" />
+            {/* <Chip size="small" color="success" label="+35%" /> */}
           </Stack>
           <Typography variant="caption" sx={{ color: "text.secondary" }}>
             Electricity usage per hour for the last 24 hours

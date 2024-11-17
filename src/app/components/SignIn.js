@@ -19,6 +19,7 @@ const SignIn = ({ open, onClose }) => {
   const [error, setError] = useState("");
   const router = useRouter();
   const { login } = useAuth();
+  
 
   const handleSignIn = () => {
     const user = users.find(
