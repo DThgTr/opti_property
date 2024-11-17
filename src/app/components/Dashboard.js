@@ -77,7 +77,7 @@ export default function Dashboard() {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container item spacing={2}>
       {/* Switches for controlling lights and water */}
       <Grid item xs={12}>
         <FormGroup row>

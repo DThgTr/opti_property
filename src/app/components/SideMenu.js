@@ -9,7 +9,10 @@ import Button from "@mui/material/Button";
 import SignIn from "./SignIn";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
-import OptionsMenu from "./OptionsMenu"; // Import the OptionsMenu component
+import MenuContent from "./MenuContent";
+import CardAlert from "./CardAlert";
+import OptionsMenu from "./OptionsMenu";
+import Divider from "@mui/material/Divider";
 
 const drawerWidth = 240;
 
@@ -63,7 +66,6 @@ export default function SideMenu() {
           </Typography>
         )}
       </Box>
-
       <Box sx={{ p: 2, display: "flex", justifyContent: "center" }}>
         {!isAuthenticated && (
           <>
@@ -78,6 +80,9 @@ export default function SideMenu() {
           </>
         )}
       </Box>
+      <Divider />
+      <MenuContent />
+      <CardAlert />
       {isAuthenticated && (
         <Stack
           direction="row"
