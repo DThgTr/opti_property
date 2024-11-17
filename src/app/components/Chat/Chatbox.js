@@ -14,7 +14,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import SendIcon from "@mui/icons-material/Send";
 import { handleChatRequest } from "./ChatHandler.js"; // Import the chat handler
 
-export default function Chatbox({ state, setState }) {
+export default function ChatBox({ state, setState }) {
   const [open, setOpen] = useState(false); // State to control the sidebar visibility
   const [messages, setMessages] = useState([]); // State to store chat messages
   const [input, setInput] = useState(""); // State for input field
