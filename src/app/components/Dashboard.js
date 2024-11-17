@@ -8,6 +8,7 @@ import FormGroup from "@mui/material/FormGroup";
 import ElectricLineGraph from "./ElectricLineGraph";
 import WaterLineGraph from "./WaterLineGraph";
 import utilityUsage from "../data/utility_usage.json";
+import { useState } from "react";
 import { systemState } from "../data/system_state";
 
 const transformData = (data, key) => {
@@ -26,14 +27,6 @@ const transformData = (data, key) => {
 
 export default function Dashboard() {
   const theme = useTheme();
-
-  const [state, setState] = React.useState(systemState);
-
-  const handleChange = (event, floor, type) => {
-    const newState = { ...state };
-    newState.floor[floor][type] = event.target.checked;
-    setState(newState);
-  };
 
   const electricityColorPalette = [
     theme.palette.primary.light,
@@ -64,6 +57,14 @@ export default function Dashboard() {
   const floor2WaterData = transformData(utilityUsage, "floor2_water");
   const floor3WaterData = transformData(utilityUsage, "floor3_water");
 
+  const [state, setState] = useState(systemState);
+
+  const handleChange = (floor, type) => (event) => {
+    const newState = { ...state };
+    newState.floor[floor][type] = event.target.checked;
+    setState(newState);
+  };
+
   return (
     <Grid container spacing={2}>
       {/* Switches for controlling lights and water */}
@@ -73,7 +74,7 @@ export default function Dashboard() {
             control={
               <Switch
                 checked={state.floor["1"].electricity}
-                onChange={(e) => handleChange(e, "1", "electricity")}
+                onChange={handleChange("1", "electricity")}
               />
             }
             label="Lights Floor 1"
@@ -82,7 +83,7 @@ export default function Dashboard() {
             control={
               <Switch
                 checked={state.floor["2"].electricity}
-                onChange={(e) => handleChange(e, "2", "electricity")}
+                onChange={handleChange("2", "electricity")}
               />
             }
             label="Lights Floor 2"
@@ -91,7 +92,7 @@ export default function Dashboard() {
             control={
               <Switch
                 checked={state.floor["3"].electricity}
-                onChange={(e) => handleChange(e, "3", "electricity")}
+                onChange={handleChange("3", "electricity")}
               />
             }
             label="Lights Floor 3"
@@ -100,7 +101,7 @@ export default function Dashboard() {
             control={
               <Switch
                 checked={state.floor["1"].water}
-                onChange={(e) => handleChange(e, "1", "water")}
+                onChange={handleChange("1", "water")}
               />
             }
             label="Water Floor 1"
@@ -109,7 +110,7 @@ export default function Dashboard() {
             control={
               <Switch
                 checked={state.floor["2"].water}
-                onChange={(e) => handleChange(e, "2", "water")}
+                onChange={handleChange("2", "water")}
               />
             }
             label="Water Floor 2"
@@ -118,7 +119,7 @@ export default function Dashboard() {
             control={
               <Switch
                 checked={state.floor["3"].water}
-                onChange={(e) => handleChange(e, "3", "water")}
+                onChange={handleChange("3", "water")}
               />
             }
             label="Water Floor 3"
