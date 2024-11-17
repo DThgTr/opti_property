@@ -2,7 +2,6 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
-import UsageChart from "./UsageChart";
 import ElectricLineGraph from "./ElectricLineGraph";
 import WaterLineGraph from "./WaterLineGraph";
 import utilityUsage from "../data/utility_usage.json";
@@ -55,119 +54,13 @@ export default function Dashboard() {
 
   return (
     <Grid container spacing={2}>
-      {/* Individual Floor Charts in One Row */}
-      <Grid container item spacing={2}>
-        <Grid item xs={12} sm={6} md={4}>
-          <UsageChart
-            title="Floor 1 Electricity Usage"
-            data={floor1ElectricityData}
-            colorPalette={electricityColorPalette}
-            series={[
-              {
-                id: "electricity",
-                label: "Electricity",
-                dataKey: "value",
-                stack: "total",
-                area: true,
-                showMark: false,
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <UsageChart
-            title="Floor 2 Electricity Usage"
-            data={floor2ElectricityData}
-            colorPalette={electricityColorPalette}
-            series={[
-              {
-                id: "electricity",
-                label: "Electricity",
-                dataKey: "value",
-                stack: "total",
-                area: true,
-                showMark: false,
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <UsageChart
-            title="Floor 3 Electricity Usage"
-            data={floor3ElectricityData}
-            colorPalette={electricityColorPalette}
-            series={[
-              {
-                id: "electricity",
-                label: "Electricity",
-                dataKey: "value",
-                stack: "total",
-                area: true,
-                showMark: false,
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <UsageChart
-            title="Floor 1 Water Usage"
-            data={floor1WaterData}
-            colorPalette={waterColorPalette}
-            series={[
-              {
-                id: "water",
-                label: "Water",
-                dataKey: "value",
-                stack: "total",
-                area: true,
-                showMark: false,
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <UsageChart
-            title="Floor 2 Water Usage"
-            data={floor2WaterData}
-            colorPalette={waterColorPalette}
-            series={[
-              {
-                id: "water",
-                label: "Water",
-                dataKey: "value",
-                stack: "total",
-                area: true,
-                showMark: false,
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <UsageChart
-            title="Floor 3 Water Usage"
-            data={floor3WaterData}
-            colorPalette={waterColorPalette}
-            series={[
-              {
-                id: "water",
-                label: "Water",
-                dataKey: "value",
-                stack: "total",
-                area: true,
-                showMark: false,
-              },
-            ]}
-          />
-        </Grid>
-      </Grid>
-
       {/* ElectricLineGraph.js and WaterLineGraph.js in One Row */}
       <Grid container item spacing={2}>
         <Grid item xs={12} sm={6}>
-          <ElectricLineGraph />
+          <ElectricLineGraph colorPalette={electricityColorPalette} />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <WaterLineGraph />
+          <WaterLineGraph colorPalette={waterColorPalette} />
         </Grid>
       </Grid>
     </Grid>

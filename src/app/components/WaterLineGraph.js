@@ -1,4 +1,3 @@
-// components/WaterLineGraph.js
 import * as React from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
@@ -7,6 +6,9 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import { LineChart } from "@mui/x-charts/LineChart";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 // Import data from JSON
 import utilityUsage from "../data/utility_usage.json";
@@ -41,11 +43,48 @@ AreaGradient.propTypes = {
 
 export default function WaterUsage() {
   const theme = useTheme();
+  const [selectedFloors, setSelectedFloors] = React.useState([
+    "Floor1",
+    "Floor2",
+    "Floor3",
+  ]);
+
+  const handleChange = (event) => {
+    setSelectedFloors(event.target.value);
+  };
+
   const colorPalette = [
     theme.palette.primary.light,
     theme.palette.primary.main,
     theme.palette.primary.dark,
   ];
+
+  const filteredSeries = [
+    {
+      id: "Floor1",
+      label: "Floor 1",
+      dataKey: "floor1",
+      stack: "total",
+      area: true,
+      showMark: false,
+    },
+    {
+      id: "Floor2",
+      label: "Floor 2",
+      dataKey: "floor2",
+      stack: "total",
+      area: true,
+      showMark: false,
+    },
+    {
+      id: "Floor3",
+      label: "Floor 3",
+      dataKey: "floor3",
+      stack: "total",
+      area: true,
+      showMark: false,
+    },
+  ].filter((series) => selectedFloors.includes(series.id));
 
   return (
     <Card variant="outlined" sx={{ width: "100%" }}>
@@ -74,6 +113,23 @@ export default function WaterUsage() {
             Water usage per hour for the last 24 hours
           </Typography>
         </Stack>
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+          <Select
+            multiple
+            value={selectedFloors}
+            onChange={handleChange}
+            renderValue={(selected) => {
+              const floorNumbers = selected.map((floor) =>
+                parseInt(floor.slice(-1))
+              );
+              return `Floor: ${floorNumbers.join(", ")}`;
+            }}
+          >
+            <MenuItem value="Floor1">Floor 1</MenuItem>
+            <MenuItem value="Floor2">Floor 2</MenuItem>
+            <MenuItem value="Floor3">Floor 3</MenuItem>
+          </Select>
+        </FormControl>
         <LineChart
           dataset={dataset}
           xAxis={[
@@ -84,32 +140,7 @@ export default function WaterUsage() {
               label: "Hour",
             },
           ]}
-          series={[
-            {
-              id: "Floor1",
-              label: "Floor 1",
-              dataKey: "floor1",
-              stack: "total",
-              area: true,
-              showMark: false,
-            },
-            {
-              id: "Floor2",
-              label: "Floor 2",
-              dataKey: "floor2",
-              stack: "total",
-              area: true,
-              showMark: false,
-            },
-            {
-              id: "Floor3",
-              label: "Floor 3",
-              dataKey: "floor3",
-              stack: "total",
-              area: true,
-              showMark: false,
-            },
-          ]}
+          series={filteredSeries}
           colors={colorPalette}
           height={400}
           width={600}
