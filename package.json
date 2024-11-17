@@ -22,6 +22,7 @@
     "@mui/x-date-pickers": "^7.22.2",
     "@mui/x-date-pickers-pro": "7.22.2",
     "@mui/x-tree-view": "^7.22.1",
+    "axios": "^1.7.7",
     "chart.js": "^4.4.6",
     "next": "^15.0.3",
     "react": "^18.3.1",

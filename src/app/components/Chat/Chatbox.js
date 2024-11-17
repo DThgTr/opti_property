@@ -78,8 +78,8 @@ export default function Chatbox() {
               flexDirection: "column-reverse"
             }}
           >
-            {/* Display chat messages */}
-            {messages.map((msg, index) => (
+            {/* Display chat messages in reverse order */}
+            {messages.slice(0).reverse().map((msg, index) => (
               <List key={index}>
                 <ListItem>
                   <ListItemIcon>
