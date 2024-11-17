@@ -16,7 +16,13 @@ import utilityUsage from "../data/utility_usage.json";
 // Transform data for water usage
 const dataset = utilityUsage.reduce((acc, record) => {
   if (!acc.some((item) => item.hour === record.hour)) {
-    acc.push({ hour: record.hour, floor1: 0, floor2: 0, floor3: 0 });
+    acc.push({
+      hour: record.hour,
+      floor1: 0,
+      floor2: 0,
+      floor3: 0,
+      date: record.date,
+    });
   }
   const current = acc.find((item) => item.hour === record.hour);
   if (record.floor1_water !== undefined) current.floor1 = record.floor1_water;
@@ -86,6 +92,15 @@ export default function WaterUsage() {
     },
   ].filter((series) => selectedFloors.includes(series.id));
 
+  const sumOfUsage = dataset.reduce((sum, item) => {
+    return (
+      sum +
+      selectedFloors.reduce((acc, floor) => {
+        return acc + item[floor.toLowerCase()];
+      }, 0)
+    );
+  }, 0);
+
   return (
     <Card variant="outlined" sx={{ width: "100%" }}>
       <CardContent>
@@ -102,12 +117,8 @@ export default function WaterUsage() {
             }}
           >
             <Typography variant="h4" component="p">
-              {dataset.reduce(
-                (sum, item) => sum + item.floor1 + item.floor2 + item.floor3,
-                0
-              )}
+              {sumOfUsage}
             </Typography>
-            {/* <Chip size="small" color="success" label="+35%" /> */}
           </Stack>
           <Typography variant="caption" sx={{ color: "text.secondary" }}>
             Water usage per hour for the last 24 hours
@@ -138,6 +149,7 @@ export default function WaterUsage() {
               dataKey: "hour",
               scaleType: "linear",
               label: "Hour",
+              tickFormatter: (value) => `${23 - value}:00`, // Reverse the order
             },
           ]}
           series={filteredSeries}
@@ -158,6 +170,10 @@ export default function WaterUsage() {
             },
           }}
           slotProps={{
+            tooltip: {
+              formatter: (point) =>
+                `Hour: ${23 - point.hour}\nDate: ${point.date}`,
+            },
             legend: {
               hidden: true,
             },
