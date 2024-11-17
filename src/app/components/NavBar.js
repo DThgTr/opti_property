@@ -1,12 +1,13 @@
-"use client";
 // components/Navbar.js
+
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChatIcon from "@mui/icons-material/Chat";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -18,7 +19,7 @@ import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const { isAuthenticated, username } = useAuth();
+  const { isAuthenticated, username, logout } = useAuth();
 
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
@@ -33,19 +34,27 @@ const Navbar = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           {isAuthenticated ? `Welcome, ${username}` : "My Project"}
         </Typography>
-        {!isAuthenticated && <SignIn />}
-        <IconButton color="inherit" onClick={toggleChat}>
-          <ChatIcon />
-        </IconButton>
+        {isAuthenticated ? (
+          <>
+            <IconButton color="inherit">
+              <AccountCircle />
+            </IconButton>
+            <IconButton color="inherit" onClick={logout}>
+              <LogoutIcon />
+            </IconButton>
+          </>
+        ) : (
+          <SignIn />
+        )}
       </Toolbar>
       <Drawer anchor="right" open={isChatOpen} onClose={toggleChat}>
         <div style={{ width: 250 }}>
           <List>
             <ListItem button>
               <ListItemIcon>
-                <ChatIcon />
+                <AccountCircle />
               </ListItemIcon>
-              <ListItemText primary="AI Chat" />
+              <ListItemText primary="Account" />
             </ListItem>
             <Divider />
             {/* Add more chat-related items here */}

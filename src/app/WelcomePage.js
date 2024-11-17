@@ -1,4 +1,5 @@
 // components/WelcomePage.js
+"use client";
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
