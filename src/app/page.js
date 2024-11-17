@@ -5,6 +5,7 @@ import ElectricityUsage from "./components/ElectricLineGraph";
 import WaterUsage from "./components/WaterLineGraph";
 import WelcomePage from "./WelcomePage";
 import { useAuth } from "./context/AuthContext";
+import Chatbox from './components/Chat/Chatbox.js'
 
 export default function Home() {
   const { isAuthenticated } = useAuth();
@@ -19,6 +20,7 @@ export default function Home() {
         <ElectricityUsage />
         <WaterUsage />
       </main>
+      <Chatbox/>
     </div>
   );
 }
