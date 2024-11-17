@@ -1,379 +1,379 @@
 {
-    "floors": [
-      {
-        "floor": 1,
-        "hourlyData": [
-          {
-            "hour": 0,
-            "electricity": 134,
-            "water": 91
-          },
-          {
-            "hour": 1,
-            "electricity": 138,
-            "water": 48
-          },
-          {
-            "hour": 2,
-            "electricity": 94,
-            "water": 48
-          },
-          {
-            "hour": 3,
-            "electricity": 100,
-            "water": 51
-          },
-          {
-            "hour": 4,
-            "electricity": 99,
-            "water": 55
-          },
-          {
-            "hour": 5,
-            "electricity": 91,
-            "water": 114
-          },
-          {
-            "hour": 6,
-            "electricity": 107,
-            "water": 22
-          },
-          {
-            "hour": 7,
-            "electricity": 70,
-            "water": 58
-          },
-          {
-            "hour": 8,
-            "electricity": 133,
-            "water": 33
-          },
-          {
-            "hour": 9,
-            "electricity": 65,
-            "water": 54
-          },
-          {
-            "hour": 10,
-            "electricity": 136,
-            "water": 65
-          },
-          {
-            "hour": 11,
-            "electricity": 118,
-            "water": 102
-          },
-          {
-            "hour": 12,
-            "electricity": 118,
-            "water": 68
-          },
-          {
-            "hour": 13,
-            "electricity": 97,
-            "water": 26
-          },
-          {
-            "hour": 14,
-            "electricity": 80,
-            "water": 117
-          },
-          {
-            "hour": 15,
-            "electricity": 51,
-            "water": 74
-          },
-          {
-            "hour": 16,
-            "electricity": 85,
-            "water": 37
-          },
-          {
-            "hour": 17,
-            "electricity": 148,
-            "water": 70
-          },
-          {
-            "hour": 18,
-            "electricity": 132,
-            "water": 97
-          },
-          {
-            "hour": 19,
-            "electricity": 71,
-            "water": 114
-          },
-          {
-            "hour": 20,
-            "electricity": 140,
-            "water": 67
-          },
-          {
-            "hour": 21,
-            "electricity": 65,
-            "water": 50
-          },
-          {
-            "hour": 22,
-            "electricity": 112,
-            "water": 120
-          },
-          {
-            "hour": 23,
-            "electricity": 54,
-            "water": 96
-          }
-        ]
-      },
-      {
-        "floor": 2,
-        "hourlyData": [
-          {
-            "hour": 0,
-            "electricity": 126,
-            "water": 100
-          },
-          {
-            "hour": 1,
-            "electricity": 103,
-            "water": 60
-          },
-          {
-            "hour": 2,
-            "electricity": 60,
-            "water": 107
-          },
-          {
-            "hour": 3,
-            "electricity": 132,
-            "water": 22
-          },
-          {
-            "hour": 4,
-            "electricity": 143,
-            "water": 111
-          },
-          {
-            "hour": 5,
-            "electricity": 84,
-            "water": 75
-          },
-          {
-            "hour": 6,
-            "electricity": 148,
-            "water": 109
-          },
-          {
-            "hour": 7,
-            "electricity": 59,
-            "water": 45
-          },
-          {
-            "hour": 8,
-            "electricity": 124,
-            "water": 41
-          },
-          {
-            "hour": 9,
-            "electricity": 60,
-            "water": 32
-          },
-          {
-            "hour": 10,
-            "electricity": 58,
-            "water": 33
-          },
-          {
-            "hour": 11,
-            "electricity": 53,
-            "water": 116
-          },
-          {
-            "hour": 12,
-            "electricity": 105,
-            "water": 52
-          },
-          {
-            "hour": 13,
-            "electricity": 147,
-            "water": 117
-          },
-          {
-            "hour": 14,
-            "electricity": 51,
-            "water": 64
-          },
-          {
-            "hour": 15,
-            "electricity": 113,
-            "water": 71
-          },
-          {
-            "hour": 16,
-            "electricity": 125,
-            "water": 82
-          },
-          {
-            "hour": 17,
-            "electricity": 106,
-            "water": 106
-          },
-          {
-            "hour": 18,
-            "electricity": 126,
-            "water": 99
-          },
-          {
-            "hour": 19,
-            "electricity": 95,
-            "water": 40
-          },
-          {
-            "hour": 20,
-            "electricity": 137,
-            "water": 82
-          },
-          {
-            "hour": 21,
-            "electricity": 91,
-            "water": 25
-          },
-          {
-            "hour": 22,
-            "electricity": 82,
-            "water": 73
-          },
-          {
-            "hour": 23,
-            "electricity": 99,
-            "water": 98
-          }
-        ]
-      },
-      {
-        "floor": 3,
-        "hourlyData": [
-          {
-            "hour": 0,
-            "electricity": 116,
-            "water": 104
-          },
-          {
-            "hour": 1,
-            "electricity": 133,
-            "water": 74
-          },
-          {
-            "hour": 2,
-            "electricity": 96,
-            "water": 23
-          },
-          {
-            "hour": 3,
-            "electricity": 98,
-            "water": 64
-          },
-          {
-            "hour": 4,
-            "electricity": 129,
-            "water": 105
-          },
-          {
-            "hour": 5,
-            "electricity": 73,
-            "water": 41
-          },
-          {
-            "hour": 6,
-            "electricity": 107,
-            "water": 106
-          },
-          {
-            "hour": 7,
-            "electricity": 97,
-            "water": 32
-          },
-          {
-            "hour": 8,
-            "electricity": 132,
-            "water": 48
-          },
-          {
-            "hour": 9,
-            "electricity": 100,
-            "water": 110
-          },
-          {
-            "hour": 10,
-            "electricity": 141,
-            "water": 72
-          },
-          {
-            "hour": 11,
-            "electricity": 124,
-            "water": 47
-          },
-          {
-            "hour": 12,
-            "electricity": 72,
-            "water": 90
-          },
-          {
-            "hour": 13,
-            "electricity": 81,
-            "water": 96
-          },
-          {
-            "hour": 14,
-            "electricity": 135,
-            "water": 106
-          },
-          {
-            "hour": 15,
-            "electricity": 117,
-            "water": 110
-          },
-          {
-            "hour": 16,
-            "electricity": 131,
-            "water": 104
-          },
-          {
-            "hour": 17,
-            "electricity": 75,
-            "water": 98
-          },
-          {
-            "hour": 18,
-            "electricity": 141,
-            "water": 109
-          },
-          {
-            "hour": 19,
-            "electricity": 113,
-            "water": 69
-          },
-          {
-            "hour": 20,
-            "electricity": 78,
-            "water": 39
-          },
-          {
-            "hour": 21,
-            "electricity": 132,
-            "water": 34
-          },
-          {
-            "hour": 22,
-            "electricity": 65,
-            "water": 73
-          },
-          {
-            "hour": 23,
-            "electricity": 67,
-            "water": 90
-          }
-        ]
-      }
-    ]
-  }
+  "floors": [
+    {
+      "hourlyData": [
+        {
+          "electricity": 145, 
+          "water": 85, 
+          "hour": 0
+        }, 
+        {
+          "electricity": 118, 
+          "water": 73, 
+          "hour": 1
+        }, 
+        {
+          "electricity": 119, 
+          "water": 72, 
+          "hour": 2
+        }, 
+        {
+          "electricity": 114, 
+          "water": 95, 
+          "hour": 3
+        }, 
+        {
+          "electricity": 134, 
+          "water": 86, 
+          "hour": 4
+        }, 
+        {
+          "electricity": 118, 
+          "water": 95, 
+          "hour": 5
+        }, 
+        {
+          "electricity": 100, 
+          "water": 52, 
+          "hour": 6
+        }, 
+        {
+          "electricity": 128, 
+          "water": 59, 
+          "hour": 7
+        }, 
+        {
+          "electricity": 71, 
+          "water": 67, 
+          "hour": 8
+        }, 
+        {
+          "electricity": 90, 
+          "water": 81, 
+          "hour": 9
+        }, 
+        {
+          "electricity": 111, 
+          "water": 114, 
+          "hour": 10
+        }, 
+        {
+          "electricity": 143, 
+          "water": 85, 
+          "hour": 11
+        }, 
+        {
+          "electricity": 94, 
+          "water": 67, 
+          "hour": 12
+        }, 
+        {
+          "electricity": 92, 
+          "water": 90, 
+          "hour": 13
+        }, 
+        {
+          "electricity": 61, 
+          "water": 67, 
+          "hour": 14
+        }, 
+        {
+          "electricity": 138, 
+          "water": 119, 
+          "hour": 15
+        }, 
+        {
+          "electricity": 55, 
+          "water": 115, 
+          "hour": 16
+        }, 
+        {
+          "electricity": 82, 
+          "water": 72, 
+          "hour": 17
+        }, 
+        {
+          "electricity": 112, 
+          "water": 85, 
+          "hour": 18
+        }, 
+        {
+          "electricity": 74, 
+          "water": 119, 
+          "hour": 19
+        }, 
+        {
+          "electricity": 144, 
+          "water": 104, 
+          "hour": 20
+        }, 
+        {
+          "electricity": 99, 
+          "water": 120, 
+          "hour": 21
+        }, 
+        {
+          "electricity": 134, 
+          "water": 93, 
+          "hour": 22
+        }, 
+        {
+          "electricity": 52, 
+          "water": 104, 
+          "hour": 23
+        }
+      ], 
+      "floor": 1
+    }, 
+    {
+      "hourlyData": [
+        {
+          "electricity": 58, 
+          "water": 57, 
+          "hour": 0
+        }, 
+        {
+          "electricity": 120, 
+          "water": 44, 
+          "hour": 1
+        }, 
+        {
+          "electricity": 88, 
+          "water": 98, 
+          "hour": 2
+        }, 
+        {
+          "electricity": 99, 
+          "water": 93, 
+          "hour": 3
+        }, 
+        {
+          "electricity": 103, 
+          "water": 99, 
+          "hour": 4
+        }, 
+        {
+          "electricity": 96, 
+          "water": 53, 
+          "hour": 5
+        }, 
+        {
+          "electricity": 133, 
+          "water": 66, 
+          "hour": 6
+        }, 
+        {
+          "electricity": 72, 
+          "water": 54, 
+          "hour": 7
+        }, 
+        {
+          "electricity": 101, 
+          "water": 71, 
+          "hour": 8
+        }, 
+        {
+          "electricity": 146, 
+          "water": 59, 
+          "hour": 9
+        }, 
+        {
+          "electricity": 120, 
+          "water": 98, 
+          "hour": 10
+        }, 
+        {
+          "electricity": 134, 
+          "water": 56, 
+          "hour": 11
+        }, 
+        {
+          "electricity": 123, 
+          "water": 109, 
+          "hour": 12
+        }, 
+        {
+          "electricity": 89, 
+          "water": 111, 
+          "hour": 13
+        }, 
+        {
+          "electricity": 94, 
+          "water": 103, 
+          "hour": 14
+        }, 
+        {
+          "electricity": 108, 
+          "water": 104, 
+          "hour": 15
+        }, 
+        {
+          "electricity": 125, 
+          "water": 92, 
+          "hour": 16
+        }, 
+        {
+          "electricity": 74, 
+          "water": 79, 
+          "hour": 17
+        }, 
+        {
+          "electricity": 105, 
+          "water": 72, 
+          "hour": 18
+        }, 
+        {
+          "electricity": 107, 
+          "water": 62, 
+          "hour": 19
+        }, 
+        {
+          "electricity": 147, 
+          "water": 67, 
+          "hour": 20
+        }, 
+        {
+          "electricity": 147, 
+          "water": 81, 
+          "hour": 21
+        }, 
+        {
+          "electricity": 110, 
+          "water": 62, 
+          "hour": 22
+        }, 
+        {
+          "electricity": 138, 
+          "water": 61, 
+          "hour": 23
+        }
+      ], 
+      "floor": 2
+    }, 
+    {
+      "hourlyData": [
+        {
+          "electricity": 119, 
+          "water": 89, 
+          "hour": 0
+        }, 
+        {
+          "electricity": 51, 
+          "water": 74, 
+          "hour": 1
+        }, 
+        {
+          "electricity": 52, 
+          "water": 59, 
+          "hour": 2
+        }, 
+        {
+          "electricity": 58, 
+          "water": 56, 
+          "hour": 3
+        }, 
+        {
+          "electricity": 87, 
+          "water": 50, 
+          "hour": 4
+        }, 
+        {
+          "electricity": 66, 
+          "water": 61, 
+          "hour": 5
+        }, 
+        {
+          "electricity": 132, 
+          "water": 55, 
+          "hour": 6
+        }, 
+        {
+          "electricity": 76, 
+          "water": 60, 
+          "hour": 7
+        }, 
+        {
+          "electricity": 139, 
+          "water": 81, 
+          "hour": 8
+        }, 
+        {
+          "electricity": 93, 
+          "water": 103, 
+          "hour": 9
+        }, 
+        {
+          "electricity": 55, 
+          "water": 76, 
+          "hour": 10
+        }, 
+        {
+          "electricity": 80, 
+          "water": 114, 
+          "hour": 11
+        }, 
+        {
+          "electricity": 94, 
+          "water": 104, 
+          "hour": 12
+        }, 
+        {
+          "electricity": 75, 
+          "water": 91, 
+          "hour": 13
+        }, 
+        {
+          "electricity": 66, 
+          "water": 94, 
+          "hour": 14
+        }, 
+        {
+          "electricity": 145, 
+          "water": 65, 
+          "hour": 15
+        }, 
+        {
+          "electricity": 107, 
+          "water": 79, 
+          "hour": 16
+        }, 
+        {
+          "electricity": 62, 
+          "water": 103, 
+          "hour": 17
+        }, 
+        {
+          "electricity": 105, 
+          "water": 105, 
+          "hour": 18
+        }, 
+        {
+          "electricity": 59, 
+          "water": 105, 
+          "hour": 19
+        }, 
+        {
+          "electricity": 69, 
+          "water": 67, 
+          "hour": 20
+        }, 
+        {
+          "electricity": 142, 
+          "water": 64, 
+          "hour": 21
+        }, 
+        {
+          "electricity": 57, 
+          "water": 113, 
+          "hour": 22
+        }, 
+        {
+          "electricity": 58, 
+          "water": 115, 
+          "hour": 23
+        }
+      ], 
+      "floor": 3
+    }
+  ]
+}
