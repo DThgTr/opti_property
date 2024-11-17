@@ -1,13 +1,10 @@
-// components/Navbar.js
 "use client";
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import ChatIcon from "@mui/icons-material/Chat";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -15,6 +12,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
+import SignIn from "./SignIn";
 
 const Navbar = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -32,9 +30,7 @@ const Navbar = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           My Project
         </Typography>
-        <Button color="inherit" startIcon={<AccountCircle />}>
-          Admin Login
-        </Button>
+        <SignIn />
         <IconButton color="inherit" onClick={toggleChat}>
           <ChatIcon />
         </IconButton>
