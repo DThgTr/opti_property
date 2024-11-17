@@ -13,9 +13,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import SignIn from "./SignIn";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const { isAuthenticated, username } = useAuth();
 
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
@@ -28,9 +30,9 @@ const Navbar = () => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          My Project
+          {isAuthenticated ? `Welcome, ${username}` : "My Project"}
         </Typography>
-        <SignIn />
+        {!isAuthenticated && <SignIn />}
         <IconButton color="inherit" onClick={toggleChat}>
           <ChatIcon />
         </IconButton>
