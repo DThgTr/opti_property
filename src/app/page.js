@@ -4,7 +4,7 @@ import Image from "next/image";
 import Dashboard from "../app/components/Dashboard";
 import WelcomePage from "./WelcomePage";
 import { useAuth } from "./context/AuthContext";
-import Chatbox from './components/Chat/Chatbox.js'
+import ChatBox from "./components/Chat/ChatBox.js";
 
 export default function Home() {
   const { isAuthenticated } = useAuth();
@@ -18,7 +18,7 @@ export default function Home() {
       <main className="flex flex-col row-start-2 items-center sm:items-start">
         <Dashboard />
       </main>
-      <Chatbox/>
+      <ChatBox />
     </div>
   );
 }

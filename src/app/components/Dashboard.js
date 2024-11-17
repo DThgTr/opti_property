@@ -8,8 +8,9 @@ import FormGroup from "@mui/material/FormGroup";
 import ElectricLineGraph from "./ElectricLineGraph";
 import WaterLineGraph from "./WaterLineGraph";
 import utilityUsage from "../data/utility_usage.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { systemState } from "../data/system_state";
+import { switchElectricity, switchWater } from "../data/dataOps";
 
 const transformData = (data, key) => {
   return data.reduce((acc, record) => {
@@ -59,10 +60,20 @@ export default function Dashboard() {
 
   const [state, setState] = useState(systemState);
 
+  useEffect(() => {
+    setState(systemState);
+  }, [systemState]);
+
   const handleChange = (floor, type) => (event) => {
     const newState = { ...state };
     newState.floor[floor][type] = event.target.checked;
     setState(newState);
+
+    if (type === "electricity") {
+      switchElectricity(floor, event.target.checked);
+    } else if (type === "water") {
+      switchWater(floor, event.target.checked);
+    }
   };
 
   return (
@@ -70,60 +81,28 @@ export default function Dashboard() {
       {/* Switches for controlling lights and water */}
       <Grid item xs={12}>
         <FormGroup row>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={state.floor["1"].electricity}
-                onChange={handleChange("1", "electricity")}
+          {Object.keys(state.floor).map((floor) => (
+            <React.Fragment key={floor}>
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={state.floor[floor].electricity}
+                    onChange={handleChange(floor, "electricity")}
+                  />
+                }
+                label={`Lights Floor ${floor}`}
               />
-            }
-            label="Lights Floor 1"
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                checked={state.floor["2"].electricity}
-                onChange={handleChange("2", "electricity")}
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={state.floor[floor].water}
+                    onChange={handleChange(floor, "water")}
+                  />
+                }
+                label={`Water Floor ${floor}`}
               />
-            }
-            label="Lights Floor 2"
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                checked={state.floor["3"].electricity}
-                onChange={handleChange("3", "electricity")}
-              />
-            }
-            label="Lights Floor 3"
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                checked={state.floor["1"].water}
-                onChange={handleChange("1", "water")}
-              />
-            }
-            label="Water Floor 1"
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                checked={state.floor["2"].water}
-                onChange={handleChange("2", "water")}
-              />
-            }
-            label="Water Floor 2"
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                checked={state.floor["3"].water}
-                onChange={handleChange("3", "water")}
-              />
-            }
-            label="Water Floor 3"
-          />
+            </React.Fragment>
+          ))}
         </FormGroup>
       </Grid>
 
