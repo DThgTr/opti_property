@@ -1,0 +1,14 @@
+{
+    "floor1": {
+        "electricity": true,
+        "water": true
+    },
+    "floor2": {
+        "electricity": false,
+        "water": true
+    },
+    "floor3": {
+        "electricity": false,
+        "water": true
+    }
+}
