@@ -4,7 +4,7 @@ import Image from "next/image";
 import Dashboard from "../app/components/Dashboard";
 import WelcomePage from "./WelcomePage";
 import { useAuth } from "./context/AuthContext";
-import Chatbox from './components/Chat/Chatbox.js';
+import ChatBox from './components/Chat/ChatBox.js';
 import { useState } from 'react';
 
 import { systemState } from "./data/system_state";
@@ -24,7 +24,7 @@ export default function Home() {
       <main className="flex flex-col row-start-2 items-center sm:items-start">
         <Dashboard state={state} setState={setState}/>
       </main>
-      <Chatbox state={state} setState={setState}/>
+      <ChatBox state={state} setState={setState}/>
     </div>
   );
 }

@@ -149,6 +149,7 @@ export default function WaterUsage() {
               dataKey: "hour",
               scaleType: "linear",
               label: "Hour",
+              reverse: true,
               tickFormatter: (value) => `${23 - value}:00`, // Reverse the order
             },
           ]}

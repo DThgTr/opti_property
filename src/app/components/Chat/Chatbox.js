@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { List, ListItem, ListItemIcon, ListItemText, Divider, Drawer, IconButton, TextField, Box } from "@mui/material";
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+  Drawer,
+  IconButton,
+  TextField,
+  Box,
+} from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import SendIcon from "@mui/icons-material/Send";
-import { handleChatRequest } from './ChatHandler.js'; // Import the chat handler
+import { handleChatRequest } from "./ChatHandler.js"; // Import the chat handler
 
 export default function Chatbox({ state, setState }) {
   const [open, setOpen] = useState(false); // State to control the sidebar visibility
@@ -55,7 +65,7 @@ export default function Chatbox({ state, setState }) {
           backgroundColor: "#1976d2",
           color: "white",
           borderRadius: "50%",
-          padding: 10
+          padding: 10,
         }}
       >
         <ChatIcon />
@@ -68,7 +78,14 @@ export default function Chatbox({ state, setState }) {
         onClose={toggleSidebar}
         style={{ width: 350 }}
       >
-        <div style={{ width: 350, display: "flex", flexDirection: "column", height: "100%" }}>
+        <div
+          style={{
+            width: 350,
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+          }}
+        >
           {/* Chat window */}
           <Box
             style={{
@@ -78,23 +95,26 @@ export default function Chatbox({ state, setState }) {
               height: "calc(100% - 120px)", // Adjust height for the input and button
               backgroundColor: "#f1f1f1",
               display: "flex",
-              flexDirection: "column-reverse"
+              flexDirection: "column-reverse",
             }}
           >
-            {messages.slice(0).reverse().map((msg, index) => (
-              <List key={index}>
-                <ListItem>
-                  <ListItemIcon>
-                    <ChatIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={msg.text}
-                    secondary={msg.sender === "user" ? "You" : "AI"}
-                  />
-                </ListItem>
-                <Divider />
-              </List>
-            ))}
+            {messages
+              .slice(0)
+              .reverse()
+              .map((msg, index) => (
+                <List key={index}>
+                  <ListItem>
+                    <ListItemIcon>
+                      <ChatIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={msg.text}
+                      secondary={msg.sender === "user" ? "You" : "AI"}
+                    />
+                  </ListItem>
+                  <Divider />
+                </List>
+              ))}
           </Box>
 
           {/* Input and Send button */}
@@ -104,7 +124,7 @@ export default function Chatbox({ state, setState }) {
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              backgroundColor: "#fff"
+              backgroundColor: "#fff",
             }}
           >
             <TextField

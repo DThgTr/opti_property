@@ -146,6 +146,7 @@ export default function ElectricityUsage({ colorPalette }) {
               dataKey: "hour",
               scaleType: "linear",
               label: "Hour",
+              reverse: true,
               tickFormatter: (value) => `${23 - value}`, // Reverse the order
             },
           ]}
@@ -166,11 +167,11 @@ export default function ElectricityUsage({ colorPalette }) {
               fill: "url('#floor3')",
             },
           }}
+          // tooltip={{
+          //   formatter: (point) =>
+          //     `Hour: ${23 - point.hour}\nDate: ${point.date}`,
+          // }}
           slotProps={{
-            tooltip: {
-              formatter: (point) =>
-                `Hour: ${23 - point.hour}\nDate: ${point.date}`,
-            },
             legend: {
               hidden: true,
             },
