@@ -3,7 +3,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Video Demo & Demo Website
 https://www.youtube.com/watch?v=iJrArB8EwCg
 
-https://www.optiproperty.tech/
+https://www.optiproperty.tech/ 
+Username: Admin
+Password: 123456
 
 ## Getting Started
 
